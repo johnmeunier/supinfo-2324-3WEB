@@ -17,6 +17,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<HomePage />} />
       <Route path="pokemon/" element={<PokemonList />} />
       <Route path="pokemon/:name" element={<PokemonDetails />} />
+      <Route path="*" element={<div>Not Found</div>} />
     </Route>
   )
 );
