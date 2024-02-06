@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { modifySearchParam} from "../../url.pure";
-import Limit from '../../components/Limit';
-import Pagination from '../../components/Pagination';
+import { modifySearchParam } from "../../url.pure";
+import Limit from "../../components/Limit";
+import Pagination from "../../components/Pagination";
+import { Link } from "react-router-dom";
 
 export default () => {
   const [pokemons, setPokemons] = useState([]);
@@ -38,7 +39,9 @@ export default () => {
         <>
           <ol>
             {pokemons.map((pokemon) => (
-              <li key={pokemon.name}>{pokemon.name}</li>
+              <li key={pokemon.name}>
+                <Link to={pokemon.name}>{pokemon.name}</Link>
+              </li>
             ))}
           </ol>
           <Pagination
@@ -55,4 +58,4 @@ export default () => {
       )}
     </>
   );
-}
+};
