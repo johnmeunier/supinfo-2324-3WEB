@@ -32,7 +32,7 @@ export default () => {
 
   return (
     <>
-      <h2>Pokemon</h2>
+      <h2>Pokedex</h2>
       <Limit setLimit={setLimit} />
       <h3>Compteur : {pokemons.length}</h3>
       {pokemons.length > 0 ? (
