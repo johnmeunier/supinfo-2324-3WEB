@@ -10,9 +10,7 @@ export default () => {
   const [nextUrl, setNextUrl] = useState("");
   const [limit, setLimit] = useState(10);
   const [count, setCount] = useState(null);
-  const [urlToFetch, setUrlToFetch] = useState(
-    `https://pokeapi.co/api/v2/pokemon?offset=0&limit=${limit}`
-  );
+  const [urlToFetch, setUrlToFetch] = useState(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=${limit}`);
 
   useEffect(() => {
     async function fetchData() {

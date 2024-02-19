@@ -1,20 +1,26 @@
-import { useState, useEffect } from "react";
-import { useParams, useLoaderData } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { usePokemon } from "../../services/usePokemon";
 
-export default () => {
-  const [error, setError] = useState(null);
+export const Pokemon = () => {
   const { name } = useParams();
 
-  const pokemon = useLoaderData();
+  const { pokemon, isPending, invalidatePokemon } = usePokemon(name);
 
-  return error ? (
-    error
-  ) : pokemon ? (
+  return !isPending ? (
     <>
       <h2>{name}</h2>
       <img src={pokemon.sprites.front_default} alt="" />
+      <button
+        onClick={() => {
+          invalidatePokemon();
+        }}
+      >
+        Invalidate pokemon
+      </button>
     </>
   ) : (
     "Chargement en cours"
   );
 };
+
+export default Pokemon;
