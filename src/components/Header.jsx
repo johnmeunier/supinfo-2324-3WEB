@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { LevelContext } from "../services/LevelContext";
+import { citiesAtom, cityIndexAtom } from "../services/atom";
+import { useAtom } from "jotai";
 
 export default () => {
   const { setLevel } = useContext(LevelContext);
+  const [cities] = useAtom(citiesAtom);
 
   return (
     <header>
